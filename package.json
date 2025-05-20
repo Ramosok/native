@@ -2,16 +2,19 @@
   "name": "reactnative",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint src/**/*.{js,jsx,ts,tsx}"
   },
   "dependencies": {
     "@expo/vector-icons": "~14.1.0",
+    "@react-native-google-signin/google-signin": "^14.0.1",
     "@react-navigation/bottom-tabs": "~7.3.10",
     "@react-navigation/elements": "~2.3.8",
     "@react-navigation/native": "~7.1.6",
@@ -40,35 +43,58 @@
     "react-native-screens": "~4.10.0",
     "react-native-web": "~0.20.0",
     "react-native-webview": "13.13.5",
-    "remove": "^0.1.5"
+    "remove": "^0.1.5",
+    "zustand": "^5.0.4"
   },
   "devDependencies": {
     "@babel/core": "~7.25.2",
-    "@react-native/eslint-config": "~0.79.2",
+    "@eslint/js": "^9.27.0",
+    "@react-native/eslint-config": "^0.79.2",
     "@types/node": "~22.15.19",
     "@types/react": "~19.0.10",
-    "@types/react-native": "~0.72.8",
-    "@typescript-eslint/eslint-plugin": "~8.32.1",
+    "@types/react-native": "^0.72.8",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
     "@typescript-eslint/parser": "^8.32.1",
     "autoprefixer": "^10.4.21",
     "dotenv": "~16.5.0",
-    "eslint": "~9.27.0",
-    "eslint-config-expo": "~9.2.0",
-    "eslint-config-prettier": "~10.1.5",
-    "eslint-plugin-jsx-a11y": "~6.10.2",
-    "eslint-plugin-react": "~7.37.5",
-    "eslint-plugin-react-native": "~5.0.0",
+    "eslint": "~8.57.0",
+    "eslint-config-airbnb": "~19.0.4",
+    "eslint-config-expo": "~8.0.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-import-resolver-typescript": "~3.8.0",
+    "eslint-plugin-import": "~2.31.0",
+    "eslint-plugin-optimize-regex": "^1.2.1",
+    "eslint-plugin-prettier": "~5.2.3",
+    "eslint-plugin-react": "~7.37.4",
+    "eslint-plugin-react-hooks": "~4.6.2",
+    "eslint-plugin-react-refresh": "~0.4.19",
     "expo-env": "~1.1.1",
+    "globals": "^16.1.0",
     "husky": "~9.1.7",
     "lint-staged": "~16.0.0",
     "prettier": "~3.5.3",
-    "typescript": "~5.8.3"
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.32.1"
   },
-  "private": true,
+  "npmpackagejsonlint": {
+    "rules": {
+      "no-repeated-dependencies": "error",
+      "no-archive-dependencies": "error",
+      "prefer-absolute-version-dependencies": "error",
+      "prefer-alphabetical-dependencies": "error",
+      "no-archive-devDependencies": "error",
+      "prefer-absolute-version-devDependencies": "error",
+      "prefer-alphabetical-devDependencies": "error",
+      "no-duplicate-properties": "error"
+    }
+  },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
+    "*.{js,ts,tsx}": [
       "eslint --fix",
-      "prettier --write"
+      "git add"
     ]
+  },
+  "eslintConfig": {
+    "extends": "./.eslintrc.json"
   }
 }

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+
     "target": "ESNext",
     "module": "ESNext",
     "lib": [
@@ -7,6 +8,7 @@
       "DOM",
       "ES2021"
     ],
+    "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "jsx": "react-jsx",
     "noEmit": true,
@@ -28,7 +30,7 @@
       "react",
       "react-native",
       "jest",
-      "node"
+      "node","expo"
     ],
     "typeRoots": [
       "./node_modules/@types",
