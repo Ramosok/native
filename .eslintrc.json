@@ -1,0 +1,134 @@
+{
+  "extends": [
+    "@react-native/eslint-config",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "paths": ["./src"]
+      }
+    },
+    "import/internal-regex": "^@/"
+  },
+  "rules": {
+    // --- Base Rules ---
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "prefer-const": "error",
+    "no-var": "error",
+    "no-magic-numbers": [
+      "warn",
+      {
+        "ignore": [0, 1, -1],
+        "ignoreArrayIndexes": true,
+        "enforceConst": true
+      }
+    ],
+
+    // --- Import Rules ---
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@/types",
+            "group": "internal"
+          },
+          {
+            "pattern": "@/shared",
+            "group": "internal"
+          },
+          {
+            "pattern": "@/entities",
+            "group": "internal"
+          },
+          {
+            "pattern": "@/features",
+            "group": "internal"
+          },
+          {
+            "pattern": "@/widgets",
+            "group": "internal"
+          },
+          {
+            "pattern": "@/app",
+            "group": "internal"
+          }
+        ],
+        "alphabetize": { "order": "asc" },
+        "newlines-between": "always"
+      }
+    ],
+    "import/no-unresolved": "error",
+    "import/no-duplicates": "error",
+    "import/no-extraneous-dependencies": "off",
+
+    // --- TypeScript Rules ---
+    "@typescript-eslint/no-explicit-any": ["error", { "ignoreRestArgs": true }],
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/ban-ts-comment": ["warn", { "ts-ignore": "allow-with-description" }],
+    "@typescript-eslint/no-shadow": ["error"],
+    "no-shadow": "off",
+    "no-undef": "off",
+
+    // --- React Rules ---
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "warn",
+    "react/self-closing-comp": "error",
+    "react/no-array-index-key": "warn",
+
+    // --- React Hooks Rules ---
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+
+    // --- Prettier Integration ---
+    "prettier/prettier": [
+      "warn",
+      {
+        "singleQuote": true,
+        "semi": true,
+        "trailingComma": "es5",
+        "printWidth": 80
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-shadow": ["error"],
+        "no-shadow": "off",
+        "no-undef": "off"
+      }
+    }
+  ],
+  "ignorePatterns": ["node_modules/", "dist/", "*.css", "*.config.ts"]
+}
