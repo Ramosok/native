@@ -1,5 +1,6 @@
-import { Text, View } from 'react-native';
 import { FC } from 'react';
+
+import { Text, View } from 'react-native';
 
 const Profile: FC = () => {
   return (

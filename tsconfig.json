@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-
     "target": "ESNext",
     "module": "ESNext",
     "lib": [
@@ -30,7 +29,8 @@
       "react",
       "react-native",
       "jest",
-      "node","expo"
+      "node",
+      "expo"
     ],
     "typeRoots": [
       "./node_modules/@types",
