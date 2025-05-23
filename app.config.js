@@ -1,67 +1,56 @@
-import 'dotenv/config';
-
-export default {
+module.exports = {
   name: 'React Native App',
-  slug: 'react-native-app',
+  slug: 'reactnative',
   version: '1.0.0',
   orientation: 'portrait',
-  icon: './assets/icon.png',
   scheme: 'myapp',
   userInterfaceStyle: 'automatic',
   newArchEnabled: true,
-  jsEngine: 'hermes' as const,
-  platforms: ['ios', 'android', 'web'] as const,
-  privacy: 'unlisted' as const,
-
+  jsEngine: 'hermes',
+  platforms: ['ios', 'android', 'web'],
+  privacy: 'unlisted',
   splash: {
-    image: './assets/splash.png',
-    resizeMode: 'contain' as const,
+    resizeMode: 'contain',
     backgroundColor: '#ffffff',
   },
-
   ios: {
     supportsTablet: true,
-    bundleIdentifier: 'com.yourcompany.reactnative',
+    bundleIdentifier: 'com.anonymous.reactnative',
     buildNumber: '1.0.0',
   },
-
   android: {
-    package: 'com.yourcompany.reactnative',
+    package: 'com.anonymous.reactnative',
     versionCode: 1,
     adaptiveIcon: {
-      foregroundImage: './assets/adaptive-icon.png',
       backgroundColor: '#ffffff',
     },
     edgeToEdgeEnabled: true,
   },
-
   web: {
     bundler: 'metro',
     output: 'static',
-    favicon: './assets/favicon.png',
     rendererPath: './src/app',
   },
-
   plugins: [
     'expo-router',
     [
       'expo-splash-screen',
       {
-        image: './assets/splash.png',
         imageWidth: 200,
         resizeMode: 'contain',
         backgroundColor: '#ffffff',
       },
     ],
   ],
-
-  experiments: {
-    typedRoutes: true,
-  },
-
   extra: {
+    eas: {
+      projectId: '7b6f4c79-f8c8-4085-801c-8e79f3709156',
+    },
     env: {
       apiUrl: process.env.EXPO_PUBLIC_API_URL,
     },
+  },
+  experiments: {
+    typedRoutes: true,
   },
 };

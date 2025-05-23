@@ -1,6 +1,6 @@
-import { Redirect } from 'expo-router';
-
 import { FC, PropsWithChildren, useSyncExternalStore } from 'react';
+
+import { Redirect } from 'expo-router';
 
 import { getAuthSnapshot, subscribeAuth } from '@/lib/stores/auth';
 

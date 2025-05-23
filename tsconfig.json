@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-
     "target": "ESNext",
     "module": "ESNext",
     "lib": [
@@ -30,7 +29,8 @@
       "react",
       "react-native",
       "jest",
-      "node","expo"
+      "node",
+      "expo"
     ],
     "typeRoots": [
       "./node_modules/@types",
@@ -38,9 +38,7 @@
     ]
   },
   "include": [
-    "./src/**/*",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts"
+    "./src/**/*"
   ],
   "exclude": [
     "node_modules",

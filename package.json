@@ -6,8 +6,8 @@
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint src/**/*.{js,jsx,ts,tsx}"
@@ -44,7 +44,8 @@
     "react-native-web": "~0.20.0",
     "react-native-webview": "13.13.5",
     "remove": "^0.1.5",
-    "zustand": "^5.0.4"
+    "zustand": "^5.0.4",
+    "expo-dev-client": "~5.1.8"
   },
   "devDependencies": {
     "@babel/core": "~7.25.2",
@@ -73,6 +74,7 @@
     "husky": "~9.1.7",
     "lint-staged": "~16.0.0",
     "prettier": "~3.5.3",
+    "ts-node": "^10.9.2",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.32.1"
   },
